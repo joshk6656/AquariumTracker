@@ -1,0 +1,100 @@
+﻿@model FishViewModel 
+@{
+    ViewData["Title"] = "Fish List";
+}
+<style>
+    .styled-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        font-family: sans-serif;
+        min-width: 400px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+        .styled-table thead tr {
+            background-color: #009879;
+            color: #ffffff;
+            text-align: left;
+        }
+        .styled-table th,
+        .styled-table td {
+            padding: 12px 15px;
+        }
+        .styled-table tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+
+            .styled-table tbody tr:nth-of-type(even) {
+                background-color: #f3f3f3;
+            }
+
+            .styled-table tbody tr:last-of-type {
+                border-bottom: 2px solid #009879;
+            }
+            .styled-table tbody tr.active-row {
+                font-weight: bold;
+                color: #009879;
+            }
+
+</style>
+<div class="row">
+    <div class="col-md-4">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+    <div class="col-md-3 text-right">
+        <a asp-controller="Fish" asp-action="EditFish" asp-route-fishId="0"><h4>Add New Fish</h4></a>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-10">
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Date Added</td>
+                    <td>Date Removed</td>
+                    <td>Quarantined?</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.FishList)
+                {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.DateAdded</td>
+                    <td>@item.DateRemoved</td>
+                    <td>@item.Quarantined</td>
+                    <td><a asp-controller="Fish" asp-action="EditFish" asp-route-fishId="@item.FishId"><span>Edit</span></a></td>
+                    <td><a href="#" onclick="return deleteFish(@item.FishId);"><span>Delete</span></a></td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    function deleteFish(id) {
+        if (confirm('Are you sure you want to delete this fish?')) {
+            $.ajax({
+                url: "/Fish/DeleteFish",
+                data: {
+                    fishId: id
+                },
+                cache: false,
+                type: "POST",
+                success: function (result) {
+                    location.reload();
+                },
+                error: function () {
+                }
+            })
+        } else {
+        }
+    }
+    
+</script>

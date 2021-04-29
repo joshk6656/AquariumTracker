@@ -1,0 +1,48 @@
+﻿{
+   "CodeGenerationMode": 0,
+   "ContextClassName": "AquariumTrackerContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": "Data",
+   "OutputPath": "Models",
+   "ProceduresReturnList": false,
+   "ProjectRootNamespace": "AquariumTracker",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "Name": "[dbo].[Aquarium]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[AquariumOwner]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Fish]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[AquariumOwnerListView]",
+         "ObjectType": 3
+      }
+   ],
+   "UiHint": "DESKTOP-UCPE31A\\SQLEXPRESS.AquariumTracker",
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseNoConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSpatial": false
+}
